@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログイン画面</title>
+    <link rel="stylesheet" href="style/login.css">
+</head>
+
+<body>
+    <h1 class="page-title">ログイン</h1>
+
+    <div class="register-link">
+        <a href="register.html">あたらしくアカウントをつくる</a>
+    </div>
+
+    <div class="login-container">
+        <form action="/login" method="post" class="login-form" id="loginForm">
+            <div class="form-group">
+                <label for="nickname">ニックネーム</label>
+                <input type="text" id="nickname" name="nickname" class="form-input">
+                <span id="nickname-error" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">パスワード</label>
+                <input type="password" id="password" name="password" class="form-input">
+                <button type="button" id="toggle-password">ひょうじ</button>
+                <span id="password-error" class="error-message"></span>
+            </div>
+
+            <button type="submit" class="login-button">ログイン</button>
+        </form>
+
+    </div>
+
+    <div id="popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <div class="popup-message" id="popupMessage"></div>
+            <button id="popupButton" class="popup-button">OK</button>
+        </div>
+    </div>
+
+    <script src="script/login.js"></script>
+</body>
+
+</html>

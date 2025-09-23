@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>編集画面</title>
+    <link rel="stylesheet" href="style/edit.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>きろくをなおす</h1>
+
+        <div class="edit-form">
+            <form action="">
+                <div class="form-group">
+                    <label for="editDate">日にち</label>
+                    <input type="date" id="editDate" name="date" required>
+                    <div class="error-message" id="dateError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="editType">💰タイプ</label>
+                    <select name="type" id="editType" required>
+                        <option value="received">もらった</option>
+                        <option value="spent">つかった</option>
+                    </select>
+                    <div class="error-message" id="typeError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="editAmount">🪙お金</label>
+                    <div class="amount-input">
+                        <input type="number" min="0" id="editAmount" name="amount" required>
+                        <span class="currency">円</span>
+                    </div>
+                    <div class="error-message" id="amountError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="editCategory">🛍️カテゴリー</label>
+                    <select name="category" id="editCategory" required>
+                        <!--カテゴリーはJSで動的に設定-->
+                    </select>
+                    <div class="error-message" id="categoryError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="editMemo">📝メモ</label>
+                    <textarea name="memo" id="editMemo" rows="3"></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" id="saveBtn" class="save-btn">ほぞん</button>
+                    <button type="button" id="cancelBtn" class="cancel-btn">キャンセル</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--保存成功ポップアップ-->
+    <div id="savePopup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <p>ほぞんかんりょう</p>
+            <button id="okBtn" class="ok-btn">OK</button>
+        </div>
+    </div>
+
+    <script src="script/edit.js"></script>
+</body>
+
+</html>

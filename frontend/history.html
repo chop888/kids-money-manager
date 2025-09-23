@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>履歴画面</title>
+    <link rel="stylesheet" href="style/history.css">
+</head>
+
+<body>
+    <!--ナビゲーションボタン-->
+    <nav class="navigation">
+        <button class="nav-btn" onclick="location.href = 'income.html'">📒きろくする</button>
+        <button class="nav-btn" onclick="location.href = 'calendar.html'">📅カレンダー</button>
+        <button class="nav-btn">ログアウト</button>
+    </nav>
+
+    <div class="container">
+
+        <!--残高エリア-->
+        <div class="balance-display">
+            <div class="balance-amount">
+                <div class="balance-label">もっているお金</div>
+                <div class="balance-value">¥<span id="currentBalance">0</span></div>
+            </div>
+        </div>
+
+        <h1>これまでのきろく</h1>
+
+        <!--絞り込みフォーム-->
+        <div class="search-form">
+            <div class="search-row">
+                <div class="search-item">
+                    <label for="keyword">キーワード</label>
+                    <input type="text" id="keyword" placeholder="キーワードを入力">
+                </div>
+
+                <div class="search-item">
+                    <label for="startDate">📅開始日</label>
+                    <input type="date" id="startDate">
+                </div>
+
+                <div class="search-item">
+                    <label for="endDate">📅終了日</label>
+                    <input type="date" id="endDate">
+                </div>
+
+
+                <div class="search-item">
+                    <label for="type">💰タイプ</label>
+                    <select id="type">
+                        <option value="">すべて</option>
+                        <option value="received">もらった</option>
+                        <option value="spent">つかった</option>
+                    </select>
+                </div>
+
+                <div class="search-item">
+                    <label for="category">🛍️カテゴリー</label>
+                    <select id="category">
+                        <option value="">すべて</option>
+                        <option value="pocket-money">おこづかい</option>
+                        <option value="work">おてつだい</option>
+                        <option value="new-years-gift">お年玉</option>
+                        <option value="gift">プレゼント</option>
+                        <option value="sweets">おかし</option>
+                        <option value="food">ごはん</option>
+                        <option value="toy">おもちゃ</option>
+                        <option value="game">ゲーム</option>
+                        <option value="book">本</option>
+                        <option value="other">それいがい</option>
+                    </select>
+                </div>
+
+                <button class="search-button" onclick="searchRecords()">さがす</button>
+                <button class="clear-button" onclick="clearSearch()">クリア</button>
+            </div>
+        </div>
+
+        <!--エラーメッセージ(後で記述)-->
+        <div class="error-message" id="error-message" style="display: none;">
+            ※みつからないよ
+        </div>
+
+        <!--記録一覧-->
+        <div class="records-container">
+            <table class="records-table">
+                <thead>
+                    <tr>
+                        <th>📅日にち</th>
+                        <th>💰タイプ</th>
+                        <th>🪙お金</th>
+                        <th>🛍️カテゴリー</th>
+                        <th>📝メモ</th>
+                        <th>✏️なおす❌けす</th>
+                    </tr>
+                </thead>
+                <tbody id="records-tbody">
+                    <!-- JavaScriptでデータを動的に生成 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--削除確認ポップアップ-->
+    <div id="deleteConfirmPopup" class="delete-popup-overlay" style="display: none;">
+        <div class="delete-popup-content">
+            <p>このきろくをけしますか？</p>
+            <div class="delete-popup-buttons">
+                <button id="confirmDeleteBtn" class="delete-popup-button confirm-btn">けす</button>
+                <button id="cancelDeleteBtn" class="delete-popup-button cancel-btn">キャンセル</button>
+            </div>
+        </div>
+    </div>
+    <!--ポップアップ用のHTML-->
+    <div id="popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <div class="popup-message" id="popupMessage"></div>
+            <div class="popup-bottuns" id="popupButtons"></div>
+        </div>
+    </div>
+
+    <script src="script/history.js"></script>
+    <script src="script/logout.js"></script>
+</body>
+
+</html>

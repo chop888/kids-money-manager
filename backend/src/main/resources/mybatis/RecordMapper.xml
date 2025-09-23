@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.app.mapper.RecordMapper">
+
+	<!-- 記録登録 -->
+	<insert id="insertRecord" parameterType="com.example.app.entity.Record" useGeneratedKeys="true" keyProperty="recordId">
+		INSERT INTO records (user_id, record_date, record_type, amount, category, memo, created_at, updated_at)
+		VALUES (#{userId}, #{recordDate}, #{recordType}, #{amount}, #{category}, #{memo}, NOW(), NOW())
+	</insert>
+	
+	<!-- 記録更新 -->
+	<update id="updateRecord" parameterType="com.example.app.entity.Record">
+		UPDATE records
+		SET record_date = #{recordDate},
+			record_type = #{recordType},
+			amount = #{amount},
+			category = #{category},
+			memo = #{memo},
+			updated_at = NOW()
+		WHERE record_id = #{recordId}
+	</update>
+	
+	<!-- 記録削除 -->
+	<delete id="deleteRecord">
+		DELETE FROM records
+		WHERE record_id = #{recordId}
+	</delete>
+	
+	<!-- 記録IDで検索 -->
+	<select id="findById" resultType="com.example.app.entity.Record">
+		SELECT record_id, user_id, record_date, record_type, amount, category, memo, created_at, updated_at
+		FROM records
+		WHERE record_id = #{recordId}
+	</select>
+	
+	<!-- ユーザーIDで全記録取得-->
+	<select id="findByUserId" resultType="com.example.app.entity.Record">
+		SELECT record_id, user_id, record_date, record_type, amount, category, memo, created_at, updated_at
+		FROM records
+		WHERE user_id = #{userId}
+		ORDER BY record_date DESC, created_at DESC
+	</select>
+
+	<!-- 検索条件で記録取得 -->
+	<select id="searchRecords" parameterType="com.example.app.dto.RecordSearchDto" resultType="com.example.app.entity.Record">
+		SELECT record_id, user_id, record_date, record_type, amount, category, memo, created_at, updated_at
+		FROM records
+		WHERE user_id = #{userId}
+	
+		<if test="keyword != null and keyword != ''">
+			AND (memo LIKE CONCAT('%', #{keyword}, '%')
+			OR category LIKE CONCAT('%', #{keyword}, '%')
+			OR record_date LIKE CONCAT('%', #{keyword}, '%'))
+		</if>
+		
+		<if test="startDate != null">
+			AND record_date &gt; #{startDate}
+		</if>
+		
+		<if test="endDate != null">
+			AND record_date &lt; #{endDate}
+		</if>
+		
+		<if test="recordType != null and recordType != '' and recordType != 'all'">
+			AND record_type = #{recordType}
+		</if>
+		
+		<if test="category != null">
+			AND category = #{category}
+		</if>
+		
+		ORDER BY record_date DESC, created_at DESC
+	
+	</select>
+	
+	<!-- ユーザーの残高計算 -->
+	<select id="calculateBalance" resultType="Integer">
+		SELECT COALESCE(
+			(SELECT SUM(amount) FROM records WHERE user_id = #{userId} AND record_type = 'received'), 0)
+			 - COALESCE(
+				(SELECT SUM(amount) FROM records WHERE user_id = #{userId} AND record_type = 'spent'),0)
+			
+	</select>
+
+
+</mapper>

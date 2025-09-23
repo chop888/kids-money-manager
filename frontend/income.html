@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>収支登録画面</title>
+    <link rel="stylesheet" href="style/income.css">
+</head>
+
+<body>
+
+    <nav class="navigation">
+        <button class="nav-btn" onclick="location.href='calendar.html'">📅カレンダー</button>
+        <button class="nav-btn" onclick="location.href='history.html'">📒これまでのきろく</button>
+        <button class="nav-btn">ログアウト</button>
+    </nav>
+
+    <div class="main-container">
+
+        <!--残高エリア-->
+        <div class="balance-display">
+            <div class="balance-amount">
+                <div class="balance-label">もっているお金</div>
+                <div class="balance-value">¥<span id="currentBalance">0</span></div>
+            </div>
+        </div>
+        <h1 class="page-title">もらった・つかったをきろく</h1>
+        <!--タブの切り替え-->
+        <div class="form-container">
+            <div class="tab-container">
+                <button class="tab-btn active" id="received-tab" onclick="switchTab('received')">もらった</button>
+                <button class="tab-btn" id="spent-tab" onclick="switchTab('spent')">つかった</button>
+            </div>
+
+            <!--入力フォーム-->
+            <form action="" id="transaction-form" class="transaction-form">
+                <div class="form-group">
+                    <label for="date">日にち</label>
+                    <input type="date" id="date" name="date" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">お金</label>
+                    <div class="amount-input">
+                        <input type="number" id="amount" name="amount" class="form-input" placeholder="0" min="0">
+                        <span class="currency">円</span>
+                    </div>
+                    <span id="amount-error" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">カテゴリー</label>
+                    <select name="category" id="category" class="form-input">
+                        <option value="">カテゴリーをえらぶ</option>
+                        <!--もらったカテゴリー-->
+                        <option value="おこづかい" class="received-category">おこづかい</option>
+                        <option value="おてつだい" class="received-category">おてつだい</option>
+                        <option value="お年玉" class="received-category">お年玉</option>
+                        <option value="プレゼント" class="received-category">プレゼント</option>
+                        <option value="それいがい" class="received-category">それいがい</option>
+
+                        <!--使ったカテゴリー-->
+                        <option value="おかし" class="spent-category" style="display: none;">おかし</option>
+                        <option value="ごはん" class="spent-category" style="display: none;">ごはん</option>
+                        <option value="おもちゃ" class="spent-category" style="display: none;">おもちゃ</option>
+                        <option value="ゲーム" class="spent-category" style="display: none;">ゲーム</option>
+                        <option value="本" class="spent-category" style="display: none;">本</option>
+                        <option value="それいがい" class="spent-category" style="display: none;">それいがい</option>
+                    </select>
+                    <span id="category-error" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="memo">メモ</label>
+                    <textarea name="memo" id="memo" class="form-input memo-input" placeholder="メモをにゅうりょくしてね"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">📒きろくする</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!--成功時のモーダルダイアログ-->
+    <div class="success-modal" id="success-modal">
+        <div class="modal-content">
+            <div class="modal-message">きろくかんりょう！</div>
+            <button class="modal-ok-btn" id="modal-ok-btn">OK</button>
+        </div>
+    </div>
+
+    <!--エラーポップアップ用のHTML-->
+    <div id="popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <div class="popup-message" id="popupMessage"></div>
+            <div class="popup-bottuns" id="popupButtons"></div>
+        </div>
+    </div>
+
+    <script src="script/income.js"></script>
+    <script src="script/logout.js"></script>
+</body>
+
+</html>

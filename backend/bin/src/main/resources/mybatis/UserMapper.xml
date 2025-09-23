@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.app.mapper.UserMapper">
+
+<!-- ユーザー登録 -->
+<insert id="insertUser" parameterType="com.example.app.entity.User" useGeneratedKeys="true" keyProperty="userId">
+	INSERT INTO users (last_name, first_name, nickname, password, created_at, updated_at)
+	VALUES (#{lastName}, #{firstName}, #{nickname}, #{password}, NOW(), NOW())
+</insert>
+
+<!-- ニックネームでユーザー検索 -->
+<select id="findByNickname" resultType="com.example.app.entity.User">
+	SELECT user_id, last_name, first_name, nickname, password, created_at, updated_at
+	FROM users
+	WHERE nickname = #{nickname}
+</select>
+
+<!-- ユーザーIDで検索 -->
+<select id="findById" resultType="com.example.app.entity.User">
+	SELECT user_id, last_name, first_name, nickname, password, created_at, updated_at
+	FROM users
+	WHERE user_id = #{userId}
+</select>
+
+<!-- 全ユーザー取得 -->
+<select id="findAll" resultType="com.example.app.entity.User">
+	SELECT user_id, last_name, first_name, nickname, password, created_at, updated_at
+	FROM users
+	ORDER BY created_at DESC
+</select>
+
+<!-- ユーザー更新 -->
+<update id="updateUser" parameterType="com.example.app.entity.User">UPDATE users
+	SET last_name = #{lastName},
+		first_name = #{firstName},
+		nickname = #{nickname},
+		password = #{password},
+		updated_at = NOW()
+	WHERE user_id = #{userId}</update>
+
+<!-- ユーザー削除 -->
+<delete id="deleteUser">
+	DELETE FROM users
+	WHERE user_id = #{userId}
+</delete>
+
+</mapper>

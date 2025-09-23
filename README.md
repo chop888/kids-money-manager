@@ -180,3 +180,35 @@
 - フロントエンドとバックエンドの連携確認
 - 全体の動作テスト
 - ドキュメント整備
+
+## デモ・スクリーンショット
+
+### ログイン画面
+![ログイン画面](frontend/assets/screenshot/login.png)
+- ユーザー名(ニックネーム)とパスワードでログイン
+- しんっぷるで使いやすいデザイン
+
+### 会員登録画面
+![会員登録画面](frontend/assets/screenshot/register.png)
+- 新規ユーザーの登録
+- バリデーション機能付き
+
+### 収支登録画面
+![収支登録画面](frontend/assets/screenshot/income.png)
+- 収入・支出の記録
+- カテゴリー選択機能
+
+### 収支履歴画面
+![収支履歴画面](frontend/assets/screenshot/history.png)
+- 過去の収支記録一覧
+- 検索・フィルター機能
+
+### カレンダー画面
+![カレンダー画面](frontend/assets/screenshot/calendar.png)
+- 月別カレンダー表示
+- 収支の可視化
+
+### 編集画面
+![編集画面](frontend/assets/screenshot/edit.png)
+- 収支記録の編集・削除
+- 直感的な操作

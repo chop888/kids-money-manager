@@ -116,6 +116,7 @@
 
 ## プロジェクト構造
 
+```text
 kids-money-manager/
 ├── backend/ # バックエンド(Spring Boot)
 │ ├── src/
@@ -166,6 +167,7 @@ kids-money-manager/
 │ └── register.css
 ├── .gitignore
 └── README.md
+```
 
 ## 開発の流れ
 
@@ -286,3 +288,7 @@ kids-money-manager/
 - **フロントエンド**: HTML/CSS/JavaScript → React
 - **バックエンド**: Java/Spring Boot → Node.js
 - **目的**:よりモダンな技術スタックへの移行とパフォーマンス向上
+
+```
+
+```

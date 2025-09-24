@@ -116,60 +116,56 @@
 
 ## プロジェクト構造
 
-```
-    markdown
-```
-
 kids-money-manager/
-|-- backend/ # バックエンド(Spring Boot)
-| |-- src/
-| | |-- main/
-| | | |-- java/
-| | | | |--com/example/app
-| | | | | |-- controller/ # コントローラー
-| | | | | | |-- BalanceController.java
-| | | | | | |-- CategoryController.java
-| | | | | | |-- RecordController.java
-| | | | | | └── UserController.java
-| | | | | |-- dto/ # データ転送オブジェクト
-| | | | | |-- entity/ # エンティティ
-| | | | | |-- mapper/ # MyBatis マッパー
-| | | | | |-- service/ # サービス層
-| | | | └─--- util/ # ユーティリティ
-| | | └── resources/
-| | | | |-- mybatis/
-| | | | | |-- categoryMapper.xml
-| | | | | |-- RecordMapper.xml
-| | | | | └── UserMapper.xml
-| | | └── - apllocation.properties
-| | └── test/ #テストコード
-| └── target/ # ビルド成果物
-| └── pom.xml # Maven 設定
-|-- frontend/ # フロントエンド
-| |-- html/ # HTML ファイル
-| | |-- login.html
-| | |-- register.html
-| | |-- calendar.html
-| | |-- edit.html
-| | |-- history.html
-| | └── income.html
-| |-- script/ # JavaScript ファイル
-| | |--calendar.js
-| | |-- edit.js
-| | |-- history.js
-| | |-- income.js
-| | |-- login.js
-| | |-- logout.js
-| | └── register.js
-| |-- style/ # CSS ファイル
-| | |--calendar.css
-| | |-- edit.css
-| | |-- history.css
-| | |-- income.css
-| | |-- login.css
-| | └── register.css
-|-- .gitignore
-└── REDME.md
+├── backend/ # バックエンド(Spring Boot)
+│ ├── src/
+│ │ ├── main/
+│ │ │ ├── java/
+│ │ │ │ └── com/example/app/
+│ │ │ │ ├── controller/ # コントローラー
+│ │ │ │ │ ├── BalanceController.java
+│ │ │ │ │ ├── CategoryController.java
+│ │ │ │ │ ├── RecordController.java
+│ │ │ │ │ └── UserController.java
+│ │ │ │ ├── dto/ # データ転送オブジェクト
+│ │ │ │ ├── entity/ # エンティティ
+│ │ │ │ ├── mapper/ # MyBatis マッパー
+│ │ │ │ ├── service/ # サービス層
+│ │ │ │ └── util/ # ユーティリティ
+│ │ │ └── resources/
+│ │ │ ├── mybatis/
+│ │ │ │ ├── categoryMapper.xml
+│ │ │ │ ├── RecordMapper.xml
+│ │ │ │ └── UserMapper.xml
+│ │ │ └── application.properties
+│ │ └── test/ # テストコード
+│ ├── target/ # ビルド成果物
+│ └── pom.xml # Maven 設定
+├── frontend/ # フロントエンド
+│ ├── html/ # HTML ファイル
+│ │ ├── login.html
+│ │ ├── register.html
+│ │ ├── calendar.html
+│ │ ├── edit.html
+│ │ ├── history.html
+│ │ └── income.html
+│ ├── script/ # JavaScript ファイル
+│ │ ├── calendar.js
+│ │ ├── edit.js
+│ │ ├── history.js
+│ │ ├── income.js
+│ │ ├── login.js
+│ │ ├── logout.js
+│ │ └── register.js
+│ └── style/ # CSS ファイル
+│ ├── calendar.css
+│ ├── edit.css
+│ ├── history.css
+│ ├── income.css
+│ ├── login.css
+│ └── register.css
+├── .gitignore
+└── README.md
 
 ## 開発の流れ
 

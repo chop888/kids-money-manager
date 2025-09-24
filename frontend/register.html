@@ -1,73 +1,83 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ユーザー登録画面</title>
-    <link rel="stylesheet" href="style/register.css">
-</head>
+    <link rel="stylesheet" href="style/register.css" />
+  </head>
 
-<body>
-
+  <body>
     <div class="container">
-        <h1>おこづかいちょう【とうろくがめん】</h1>
+      <h1>おこづかいちょう【とうろくがめん】</h1>
 
-        <form class="register-form" id="registerForm" novalidate>
-                <div class="form-group">
-                    <label for="lastName">みょうじ</label>
-                    <input type="text" id="lastName" name="lastName">
-                    <div class="error-message" id="lastNameError"></div>
-                </div>
-
-                <div class="form-group">
-                    <label for="firstName">なまえ</label>
-                    <input type="text" id="firstName" name="firstName">
-                    <div class="error-message" id="firstNameError"></div>
-                </div>
-
-
-            <div class="form-group">
-                <label for="nickname">ニックネーム</label>
-                <input type="text" id="nickname" name="nickname">
-                <small class="help-text">※ローマ字と数字ときごうをつかって6文字いじょう</small>
-                <div class="error-message" id="nicknameError"></div>
-            </div>
-
-            <div class="form-group">
-                <label for="password">パスワード</label>
-                <input type="password" id="password" name="password">
-                <small class="help-text">※ローマ字と数字ときごうをつかって8文字いじょう</small>
-                <button type="button" id="toggle-password">ひょうじ</button>
-                <div class="error-message" id="passwordError"></div>
-            </div>
-
-            <div class="form-group">
-                <label for="confirmPassword">パスワード(かくにん)</label>
-                <input type="password" id="confirmPassword" name="confirmPassword">
-                <button type="button" id="toggle-confirm-password">ひょうじ</button>
-                <div class="error-message" id="confirmPasswordError"></div>
-            </div>
-
-            <div class="button-container">
-                <button type="submit" class="register-btn">とうろく</button>
-            </div>
-        </form>
-
-        <div class="links">
-            <a href="login.html" class="login-link">ログインがめんにもどる</a>
+      <form class="register-form" id="registerForm" novalidate>
+        <div class="form-group">
+          <label for="lastName">みょうじ</label>
+          <input type="text" id="lastName" name="lastName" autocomplete="off" />
+          <div class="error-message" id="lastNameError"></div>
         </div>
+
+        <div class="form-group">
+          <label for="firstName">なまえ</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            autocomplete="off"
+          />
+          <div class="error-message" id="firstNameError"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="nickname">ニックネーム</label>
+          <input type="text" id="nickname" name="nickname" autocomplete="off" />
+          <small class="help-text"
+            >※ローマ字と数字ときごうをつかって6文字いじょう</small
+          >
+          <div class="error-message" id="nicknameError"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">パスワード</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            autocomplete="off"
+          />
+          <small class="help-text"
+            >※ローマ字と数字ときごうをつかって8文字いじょう</small
+          >
+          <button type="button" id="toggle-password">ひょうじ</button>
+          <div class="error-message" id="passwordError"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">パスワード(かくにん)</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" />
+          <button type="button" id="toggle-confirm-password">ひょうじ</button>
+          <div class="error-message" id="confirmPasswordError"></div>
+        </div>
+
+        <div class="button-container">
+          <button type="submit" class="register-btn">とうろく</button>
+        </div>
+      </form>
+
+      <div class="links">
+        <a href="login.html" class="login-link">ログインがめんにもどる</a>
+      </div>
     </div>
 
     <!--成功ポップアップ-->
-    <div id="successPopup" class="popup-overlay" style="display: none;">
-        <div class="popup-content">
-            <p>とうろくかんりょう！</p>
-            <button id="okBtn" class="ok-btn">OK</button>
-        </div>
+    <div id="successPopup" class="popup-overlay" style="display: none">
+      <div class="popup-content">
+        <p>とうろくかんりょう！</p>
+        <button id="okBtn" class="ok-btn">OK</button>
+      </div>
     </div>
 
     <script src="script/register.js"></script>
-</body>
-
+  </body>
 </html>

@@ -116,6 +116,11 @@
 
 ## プロジェクト構造
 
+```
+    markdown
+```
+
+kids-money-manager/
 |-- backend/ # バックエンド(Spring Boot)
 | |-- src/
 | | |-- main/
@@ -216,7 +221,7 @@
 ![ログイン画面](frontend/assets/screenshot/login.png)
 
 - ユーザー名(ニックネーム)とパスワードでログイン
-- しんっぷるで使いやすいデザイン
+- シンプルで使いやすいデザイン
 
 ### 会員登録画面
 

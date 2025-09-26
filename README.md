@@ -179,7 +179,7 @@ kids-money-manager/
 ### 2.技能選定
 
 - **フロントエンド**: HTML/CSS/JavaScript
-- **バックエンド**: Java/Spring Boot
+- **バックエンド**: Java/Spring Boot/MyBatis
 - **データベース**: MySQL
 
 ### 3.データベース設計

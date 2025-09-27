@@ -67,10 +67,9 @@
 - MySQL 8.0 以上
 - Visual Studio Code
 
-### データベース設定
+### データベース起動
 
-1. MySQL Workbench で `Kids_okodukai_db` データベースを作成
-2. `kids_okodukai_db` を実行してテーブルを作成
+- MySQL Workbench で `Kids_okodukai_db` データベースを起動
 
 ### アプリケーション起動
 
@@ -174,7 +173,7 @@ kids-money-manager/
 ### 1.要件定義
 
 - 子供がお小遣いを管理できるアプリの要件を整理
-- 昨日一覧の決定(登録・記録・確認・カレンダー表示)
+- 機能一覧の決定(登録・記録・確認・カレンダー表示)
 
 ### 2.技能選定
 
@@ -283,7 +282,7 @@ kids-money-manager/
 
 ## 技術的な進化
 
-現在は既存の画面・機能を React, Node.js で書き直し中
+現在は既存の画面・機能を React, Node.js で作成中
 
 - **フロントエンド**: HTML/CSS/JavaScript → React
 - **バックエンド**: Java/Spring Boot → Node.js
